@@ -65,17 +65,17 @@ function veiktGajienu(laukums)
       laiks: laiks,
       datums: new Date().toISOString().split('T')[0]
     };
-    //sūta uz serveri
-    fetch('pievienot-rezultatu', {
-      methods: 'POST',
-      headers: {
-       'Content-Type': 'aplication/json',
-      },
+ //sūta uz serveri
+ fetch('pievienot-rezultatu', {
+  method: 'POST',
+  headers: {
+    'Content-Type': 'application/json',
+  },
       body: JSON.stringify(rezultats)
     }).then(response => {
       if (response.ok) {
-        console.log('Rezultāti veiksmīgi saglabāti')
-        document.location = 'top#'+vards+','+klikski+','+laiks
+        console.log('Rezultāti veiksmīgi saglabāti');
+        document.location = 'top#'+vards+','+klikski+','+laiks;
       } else{
         alert('Neizdevās saglabāt rezultātus.')
       }
